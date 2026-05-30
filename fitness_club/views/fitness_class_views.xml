@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_fitness_class_tree" model="ir.ui.view">
+        <field name="name">fitness.class.tree</field>
+        <field name="model">fitness.class</field>
+        <field name="arch" type="xml">
+            <list decoration-success="state == 'done'"
+                  decoration-muted="state == 'cancelled'">
+                <field name="start_datetime"/>
+                <field name="name"/>
+                <field name="trainer_id"/>
+                <field name="duration_min"/>
+                <field name="participant_count"/>
+                <field name="max_participants"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fitness_class_form" model="ir.ui.view">
+        <field name="name">fitness.class.form</field>
+        <field name="model">fitness.class</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="planned,done,cancelled"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="trainer_id"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="start_datetime"/>
+                            <field name="duration_min"/>
+                            <field name="end_datetime" readonly="1"/>
+                            <field name="max_participants"/>
+                            <field name="participant_count" readonly="1"/>
+                            <field name="is_full" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Participants">
+                            <field name="attendance_ids">
+                                <list>
+                                    <field name="member_id"/>
+                                    <field name="attended_on"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fitness_class_calendar" model="ir.ui.view">
+        <field name="name">fitness.class.calendar</field>
+        <field name="model">fitness.class</field>
+        <field name="arch" type="xml">
+            <calendar date_start="start_datetime" date_stop="end_datetime"
+                      color="trainer_id" mode="week" string="Schedule">
+                <field name="name"/>
+                <field name="trainer_id"/>
+                <field name="state"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_fitness_class_kanban" model="ir.ui.view">
+        <field name="name">fitness.class.kanban</field>
+        <field name="model">fitness.class</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="trainer_id" sample="1">
+                <field name="name"/>
+                <field name="start_datetime"/>
+                <field name="participant_count"/>
+                <field name="max_participants"/>
+                <field name="is_full"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="o_kanban_record_top">
+                            <strong>
+                                <field name="name"/>
+                            </strong>
+                        </div>
+                        <div>
+                            <i class="fa fa-clock me-1"
+                               title="Starts at" role="img"
+                               aria-label="Starts at"/>
+                            <field name="start_datetime"/>
+                        </div>
+                        <div>
+                            <field name="participant_count"/>
+                            /
+                            <field name="max_participants"/>
+                            participants
+                        </div>
+                        <div t-if="record.is_full.raw_value">
+                            <span class="badge text-bg-warning">Full</span>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_fitness_class" model="ir.actions.act_window">
+        <field name="name">Classes</field>
+        <field name="res_model">fitness.class</field>
+        <field name="view_mode">calendar,kanban,list,form</field>
+    </record>
+
+</odoo>

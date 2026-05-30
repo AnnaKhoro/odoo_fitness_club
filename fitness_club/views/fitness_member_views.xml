@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_fitness_member_tree" model="ir.ui.view">
+        <field name="name">fitness.member.tree</field>
+        <field name="model">fitness.member</field>
+        <field name="arch" type="xml">
+            <list decoration-success="subscription_state == 'active'"
+                  decoration-warning="subscription_state == 'expired'"
+                  decoration-muted="subscription_state == 'none'">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="gender"/>
+                <field name="age"/>
+                <field name="active_subscription_id"/>
+                <field name="subscription_state"/>
+                <field name="attendance_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fitness_member_form" model="ir.ui.view">
+        <field name="name">fitness.member.form</field>
+        <field name="model">fitness.member</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="gender"/>
+                            <field name="birthday"/>
+                            <field name="age"/>
+                            <field name="subscription_state" readonly="1"/>
+                            <field name="active_subscription_id" readonly="1"/>
+                            <field name="attendance_count" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Subscriptions">
+                            <field name="subscription_ids">
+                                <list>
+                                    <field name="plan_id"/>
+                                    <field name="date_start"/>
+                                    <field name="date_end"/>
+                                    <field name="state"/>
+                                    <field name="days_left"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Attendances">
+                            <field name="attendance_ids">
+                                <list>
+                                    <field name="attended_on"/>
+                                    <field name="class_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fitness_member_kanban" model="ir.ui.view">
+        <field name="name">fitness.member.kanban</field>
+        <field name="model">fitness.member</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="subscription_state" sample="1">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="subscription_state"/>
+                <field name="active_subscription_id"/>
+                <field name="attendance_count"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="o_kanban_record_top">
+                            <strong>
+                                <field name="name"/>
+                            </strong>
+                        </div>
+                        <div t-if="record.phone.raw_value">
+                            <i class="fa fa-phone me-1"
+                               title="Phone" role="img"
+                               aria-label="Phone"/>
+                            <field name="phone"/>
+                        </div>
+                        <div t-if="record.active_subscription_id.raw_value">
+                            <i class="fa fa-id-card me-1"
+                               title="Subscription" role="img"
+                               aria-label="Subscription"/>
+                            <field name="active_subscription_id"/>
+                        </div>
+                        <div>
+                            <i class="fa fa-check me-1"
+                               title="Attendances" role="img"
+                               aria-label="Attendances"/>
+                            <field name="attendance_count"/>
+                            visits
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_fitness_member_search" model="ir.ui.view">
+        <field name="name">fitness.member.search</field>
+        <field name="model">fitness.member</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <filter name="active_sub" string="Active subscription"
+                        domain="[('subscription_state', '=', 'active')]"/>
+                <filter name="expired_sub" string="Expired"
+                        domain="[('subscription_state', '=', 'expired')]"/>
+                <filter name="no_sub" string="No subscription"
+                        domain="[('subscription_state', '=', 'none')]"/>
+                <separator/>
+                <filter name="group_state" string="Subscription status"
+                        context="{'group_by': 'subscription_state'}"/>
+                <filter name="group_gender" string="Gender"
+                        context="{'group_by': 'gender'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_fitness_member" model="ir.actions.act_window">
+        <field name="name">Members</field>
+        <field name="res_model">fitness.member</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+
+</odoo>

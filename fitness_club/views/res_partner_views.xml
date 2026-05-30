@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_res_partner_form_fitness" model="ir.ui.view">
+        <field name="name">res.partner.form.fitness</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Fitness Club"
+                       invisible="not is_fitness_member">
+                    <field name="is_fitness_member" readonly="1"/>
+                    <field name="fitness_member_ids" readonly="1">
+                        <list>
+                            <field name="name"/>
+                            <field name="subscription_state"/>
+                            <field name="attendance_count"/>
+                        </list>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
