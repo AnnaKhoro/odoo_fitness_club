@@ -18,22 +18,27 @@ class FitnessClass(models.Model):
     trainer_id = fields.Many2one(
         'fitness.trainer', string='Trainer', required=True,
     )
+    
     start_datetime = fields.Datetime(
         string='Starts at',
         required=True,
         default=fields.Datetime.now,
     )
+
     duration_min = fields.Integer(
         string='Duration (min)', default=60,
     )
+
     end_datetime = fields.Datetime(
         string='Ends at',
         compute='_compute_end_datetime',
         store=True,
     )
+
     max_participants = fields.Integer(
         string='Max participants', default=15,
     )
+    
     state = fields.Selection(
         selection=[
             ('planned', 'Planned'),
@@ -44,16 +49,19 @@ class FitnessClass(models.Model):
         default='planned',
         required=True,
     )
+
     notes = fields.Text(string='Notes')
     active = fields.Boolean(default=True)
 
     attendance_ids = fields.One2many(
         'fitness.attendance', 'class_id', string='Participants',
     )
+
     participant_count = fields.Integer(
         string='Participants count',
         compute='_compute_participant_count',
     )
+
     is_full = fields.Boolean(
         string='Is full',
         compute='_compute_participant_count',

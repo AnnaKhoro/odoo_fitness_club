@@ -18,16 +18,19 @@ class FitnessAttendance(models.Model):
         'fitness.member', string='Member',
         required=True, ondelete='cascade',
     )
+
     class_id = fields.Many2one(
         'fitness.class', string='Class',
         required=True, ondelete='cascade',
     )
+
     subscription_id = fields.Many2one(
         'fitness.subscription',
         string='Subscription',
         compute='_compute_subscription_id',
         store=True,
     )
+    
     attended_on = fields.Datetime(
         string='Attended on',
         default=fields.Datetime.now,

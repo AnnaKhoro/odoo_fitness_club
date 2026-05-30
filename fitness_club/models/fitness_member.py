@@ -23,16 +23,20 @@ class FitnessMember(models.Model):
         ondelete='restrict',
         help='Standard partner used as a contact record for the member.',
     )
+
     birthday = fields.Date(string='Date of Birth')
+    
     age = fields.Integer(
         string='Age',
         compute='_compute_age',
         store=False,
     )
+
     gender = fields.Selection(
         selection=[('male', 'Male'), ('female', 'Female')],
         string='Gender',
     )
+
     phone = fields.Char(related='partner_id.phone', store=True, readonly=False)
     email = fields.Char(related='partner_id.email', store=True, readonly=False)
     active = fields.Boolean(default=True)
@@ -40,12 +44,14 @@ class FitnessMember(models.Model):
     subscription_ids = fields.One2many(
         'fitness.subscription', 'member_id', string='Subscriptions',
     )
+
     active_subscription_id = fields.Many2one(
         'fitness.subscription',
         string='Active subscription',
         compute='_compute_active_subscription',
         store=True,
     )
+
     subscription_state = fields.Selection(
         selection=[
             ('none', 'No subscription'),
@@ -60,6 +66,7 @@ class FitnessMember(models.Model):
     attendance_ids = fields.One2many(
         'fitness.attendance', 'member_id', string='Attendances',
     )
+
     attendance_count = fields.Integer(
         string='Attendances',
         compute='_compute_attendance_count',

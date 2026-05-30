@@ -21,15 +21,18 @@ class FitnessSubscription(models.Model):
         compute='_compute_name',
         store=True,
     )
+
     member_id = fields.Many2one(
         'fitness.member',
         string='Member',
         required=True,
         ondelete='cascade',
     )
+
     plan_id = fields.Many2one(
         'fitness.plan', string='Plan', required=True,
     )
+
     date_start = fields.Date(
         string='Start date',
         required=True,
@@ -40,6 +43,7 @@ class FitnessSubscription(models.Model):
         compute='_compute_date_end',
         store=True,
     )
+
     state = fields.Selection(
         selection=[
             ('draft', 'Draft'),
@@ -51,19 +55,23 @@ class FitnessSubscription(models.Model):
         compute='_compute_state',
         store=True,
     )
+
     manual_state = fields.Selection(
         selection=[('cancelled', 'Cancelled')],
         string='Manual override',
         help='Set to "cancelled" to mark this subscription as cancelled.',
     )
+
     days_left = fields.Integer(
         string='Days left',
         compute='_compute_days_left',
     )
+    
     visits_used = fields.Integer(
         string='Visits used',
         compute='_compute_visits_used',
     )
+    
     price = fields.Float(related='plan_id.price', store=True)
 
     @api.depends('member_id', 'plan_id', 'date_start')

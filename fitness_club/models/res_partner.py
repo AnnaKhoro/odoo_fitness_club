@@ -9,6 +9,7 @@ class ResPartner(models.Model):
     fitness_member_ids = fields.One2many(
         'fitness.member', 'partner_id', string='Fitness memberships',
     )
+    
     is_fitness_member = fields.Boolean(
         string='Is fitness member',
         compute='_compute_is_fitness_member',

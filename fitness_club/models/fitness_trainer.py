@@ -13,23 +13,28 @@ class FitnessTrainer(models.Model):
     _order = 'name'
 
     name = fields.Char(string='Full Name', required=True)
+
     specialization = fields.Char(
         string='Specialization',
         translate=True,
         help='Main discipline of the trainer (yoga, crossfit, ...).',
     )
+
     phone = fields.Char(string='Phone')
     email = fields.Char(string='Email')
+
     user_id = fields.Many2one(
         'res.users',
         string='System User',
         help='If set, the trainer can log in with this user account.',
     )
+
     active = fields.Boolean(default=True)
 
     class_ids = fields.One2many(
         'fitness.class', 'trainer_id', string='Classes',
     )
+    
     class_count = fields.Integer(
         string='Classes',
         compute='_compute_class_count',

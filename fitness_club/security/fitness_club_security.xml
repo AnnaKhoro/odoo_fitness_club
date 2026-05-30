@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--
+            Privilege groups both User and Administrator under one
+            "Fitness Club" category in Settings → Users.
+        -->
+        <record id="fitness_club_privilege" model="res.groups.privilege">
+            <field name="name">Fitness Club</field>
+            <field name="sequence">25</field>
+        </record>
+
+        <!-- User group: front-desk staff -->
+        <record id="group_fitness_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="privilege_id" ref="fitness_club_privilege"/>
+        </record>
+
+        <!-- Admin group: club manager (inherits User -> hierarchy) -->
+        <record id="group_fitness_admin" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="privilege_id" ref="fitness_club_privilege"/>
+            <field name="implied_ids"
+                   eval="[(4, ref('group_fitness_user'))]"/>
+        </record>
+
+        <!--
+            Grant the Settings-group user automatic Admin rights to the
+            Fitness Club module.
+        -->
+        <record id="base.group_system" model="res.groups">
+            <field name="implied_ids"
+                   eval="[(4, ref('group_fitness_admin'))]"/>
+        </record>
+
+        <!-- Record rule 1: User sees only active members -->
+        <record id="rule_member_user_active" model="ir.rule">
+            <field name="name">Member: only active for User</field>
+            <field name="model_id" ref="model_fitness_member"/>
+            <field name="domain_force">[('active', '=', True)]</field>
+            <field name="groups"
+                   eval="[(4, ref('group_fitness_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Admin sees all members (active + archived) -->
+        <record id="rule_member_admin_all" model="ir.rule">
+            <field name="name">Member: all for Administrator</field>
+            <field name="model_id" ref="model_fitness_member"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups"
+                   eval="[(4, ref('group_fitness_admin'))]"/>
+        </record>
+
+        <!-- Record rule 2: trainers see only their own classes -->
+        <record id="rule_class_trainer_own" model="ir.rule">
+            <field name="name">Class: trainer sees only own classes</field>
+            <field name="model_id" ref="model_fitness_class"/>
+            <field name="domain_force">
+                ['|',
+                 ('trainer_id.user_id', '=', user.id),
+                 ('trainer_id.user_id', '=', False)]
+            </field>
+            <field name="groups"
+                   eval="[(4, ref('group_fitness_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Admin sees all classes regardless of trainer -->
+        <record id="rule_class_admin_all" model="ir.rule">
+            <field name="name">Class: all for Administrator</field>
+            <field name="model_id" ref="model_fitness_class"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups"
+                   eval="[(4, ref('group_fitness_admin'))]"/>
+        </record>
+
+    </data>
+</odoo>

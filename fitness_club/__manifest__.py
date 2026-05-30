@@ -4,7 +4,7 @@
     'author': 'Anna Khoroshylova',
     'category': 'Services',
     'license': 'LGPL-3',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.1.0',
 
     'depends': [
         'base',
@@ -13,6 +13,7 @@
     ],
 
     'data': [
+        'security/fitness_club_security.xml',
         'security/ir.model.access.csv',
     ],
 
