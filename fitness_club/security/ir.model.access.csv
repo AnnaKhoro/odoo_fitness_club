@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fitness_plan_user,fitness.plan.user,model_fitness_plan,base.group_user,1,1,1,1
+access_fitness_member_user,fitness.member.user,model_fitness_member,base.group_user,1,1,1,1
+access_fitness_subscription_user,fitness.subscription.user,model_fitness_subscription,base.group_user,1,1,1,1
+access_fitness_trainer_user,fitness.trainer.user,model_fitness_trainer,base.group_user,1,1,1,1
+access_fitness_class_user,fitness.class.user,model_fitness_class,base.group_user,1,1,1,1
+access_fitness_attendance_user,fitness.attendance.user,model_fitness_attendance,base.group_user,1,1,1,1
