@@ -125,6 +125,9 @@
                 <filter name="no_sub" string="No subscription"
                         domain="[('subscription_state', '=', 'none')]"/>
                 <separator/>
+                <filter name="archived" string="Archived"
+                        domain="[('active', '=', False)]"/>
+                <separator/>
                 <filter name="group_state" string="Subscription status"
                         context="{'group_by': 'subscription_state'}"/>
                 <filter name="group_gender" string="Gender"

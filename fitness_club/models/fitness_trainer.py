@@ -21,7 +21,6 @@ class FitnessTrainer(models.Model):
     )
     
     name = fields.Char(
-        string='Full Name',
         related='partner_id.name',
         store=True,
         readonly=False,
@@ -47,9 +46,9 @@ class FitnessTrainer(models.Model):
     class_ids = fields.One2many(
         'fitness.class', 'trainer_id', string='Classes',
     )
-    
+
     class_count = fields.Integer(
-        string='Classes',
+        string='Classes count',
         compute='_compute_class_count',
     )
 

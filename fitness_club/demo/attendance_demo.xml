@@ -19,5 +19,34 @@
             <field name="class_id" ref="class_pilates_future"/>
         </record>
 
+        <record id="attendance_4" model="fitness.attendance">
+            <field name="member_id" ref="member_daniel"/>
+            <field name="class_id" ref="class_crossfit_past"/>
+            <field name="attended_on"
+                   eval="(DateTime.now() - relativedelta(days=1)).replace(hour=19, minute=5, second=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="attendance_5" model="fitness.attendance">
+            <field name="member_id" ref="member_emily"/>
+            <field name="class_id" ref="class_pilates_past"/>
+            <field name="attended_on"
+                   eval="(DateTime.now() - relativedelta(days=4)).replace(hour=18, minute=5, second=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        </record>
+
+        <record id="attendance_6" model="fitness.attendance">
+            <field name="member_id" ref="member_filip"/>
+            <field name="class_id" ref="class_yoga_future"/>
+        </record>
+
+        <record id="attendance_7" model="fitness.attendance">
+            <field name="member_id" ref="member_daniel"/>
+            <field name="class_id" ref="class_yoga_future"/>
+        </record>
+
+        <record id="attendance_8" model="fitness.attendance">
+            <field name="member_id" ref="member_filip"/>
+            <field name="class_id" ref="class_pilates_future"/>
+        </record>
+
     </data>
 </odoo>

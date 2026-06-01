@@ -38,5 +38,23 @@
             <field name="phone">+380502220003</field>
         </record>
 
+        <record id="partner_daniel" model="res.partner">
+            <field name="name">Daniel Wright</field>
+            <field name="email">daniel.wright@example.com</field>
+            <field name="phone">+380501110004</field>
+        </record>
+
+        <record id="partner_emily" model="res.partner">
+            <field name="name">Emily Brooks</field>
+            <field name="email">emily.brooks@example.com</field>
+            <field name="phone">+380501110005</field>
+        </record>
+
+        <record id="partner_filip" model="res.partner">
+            <field name="name">Filip Novak</field>
+            <field name="email">filip.novak@example.com</field>
+            <field name="phone">+380501110006</field>
+        </record>
+
     </data>
 </odoo>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="report_member_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="member">
+                <t t-call="web.external_layout">
+                    <div class="page"
+                         style="font-family: 'Helvetica', Arial, sans-serif;
+                                font-size: 11px; color: #222;">
+
+                        <style>
+                            .member-report h1,
+                            .member-report h2 { font-family: inherit;
+                                color: #2c3e50;
+                                margin-top: 14px; margin-bottom: 6px; }
+                            .member-report h1 { font-size: 18px;
+                                font-weight: 700; }
+                            .member-report h2 { font-size: 14px;
+                                font-weight: 600;
+                                border-bottom: 1px solid #d0d0d0;
+                                padding-bottom: 3px; }
+                            .member-report table { width: 100%;
+                                border-collapse: collapse;
+                                margin-bottom: 10px; }
+                            .member-report table th {
+                                background-color: #f3f4f6;
+                                text-align: center;
+                                padding: 5px 7px;
+                                border: 1px solid #c8c8c8;
+                                font-weight: 600; }
+                            .member-report table td { padding: 5px 7px;
+                                border: 1px solid #d8d8d8;
+                                vertical-align: top; }
+                            .member-report .report-footer {
+                                margin-top: 20px; padding-top: 8px;
+                                border-top: 1px solid #d0d0d0;
+                                font-size: 10px; color: #666; }
+                        </style>
+
+                        <div class="member-report">
+
+                            <h1>
+                                <span t-field="member.name"/>
+                            </h1>
+                            <div class="text-muted mb-3">
+                                <span t-if="member.gender">
+                                    <t t-esc="dict(
+                                        member._fields['gender'].selection
+                                    ).get(member.gender)"/>,
+                                </span>
+                                <span t-if="member.age">
+                                    <t t-esc="member.age"/> years
+                                </span>
+                            </div>
+
+                            <h2>Contact</h2>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th style="width: 130px;">Phone</th>
+                                        <td>
+                                            <span t-field="member.phone"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>
+                                            <span t-field="member.email"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date of birth</th>
+                                        <td>
+                                            <span t-field="member.birthday"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h2>Active subscription</h2>
+                            <t t-if="member.active_subscription_id">
+                                <t t-set="sub"
+                                   t-value="member.active_subscription_id"/>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th style="width: 130px;">Plan</th>
+                                            <td>
+                                                <span t-field="sub.plan_id"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Period</th>
+                                            <td>
+                                                <span t-field="sub.date_start"/>
+                                                –
+                                                <span t-field="sub.date_end"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Days left</th>
+                                            <td>
+                                                <span t-field="sub.days_left"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Visits used</th>
+                                            <td>
+                                                <span t-field="sub.visits_used"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+                            <p t-if="not member.active_subscription_id"
+                               style="color:#888;">
+                                No active subscription.
+                            </p>
+
+                            <h2>Attendance history</h2>
+                            <t t-set="attendances"
+                               t-value="member.attendance_ids.sorted(
+                                   key=lambda a: a.attended_on or False,
+                                   reverse=True)"/>
+                            <table t-if="attendances">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 160px;">Attended on</th>
+                                        <th>Class</th>
+                                        <th>Trainer</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="attendances" t-as="att">
+                                        <td>
+                                            <span t-field="att.attended_on"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="att.class_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="att.class_id.trainer_id"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p t-if="not attendances" style="color:#888;">
+                                No attendances yet.
+                            </p>
+
+                            <div class="report-footer">
+                                <span>Printed: </span>
+                                <span t-esc="context_timestamp(
+                                    datetime.datetime.now()
+                                ).strftime('%Y-%m-%d %H:%M')"/>
+                                <t t-if="member.env.company.name">
+                                    | <span t-esc="member.env.company.name"/>
+                                </t>
+                            </div>
+
+                        </div>
+
+                        <p style="page-break-after: always;"
+                           t-if="not member_last"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

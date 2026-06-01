@@ -24,6 +24,12 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <button name="action_cancel" type="object"
+                            string="Cancel"
+                            invisible="state == 'cancelled'"/>
+                    <button name="action_reset" type="object"
+                            string="Reset"
+                            invisible="state != 'cancelled'"/>
                     <field name="state" widget="statusbar"
                            statusbar_visible="planned,done,cancelled"/>
                 </header>
@@ -109,6 +115,39 @@
                     </t>
                 </templates>
             </kanban>
+        </field>
+    </record>
+
+    <record id="view_fitness_class_search" model="ir.ui.view">
+        <field name="name">fitness.class.search</field>
+        <field name="model">fitness.class</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="trainer_id"/>
+                <filter name="planned" string="Planned"
+                        domain="[('state', '=', 'planned')]"/>
+                <filter name="done" string="Done"
+                        domain="[('state', '=', 'done')]"/>
+                <filter name="cancelled" string="Cancelled"
+                        domain="[('state', '=', 'cancelled')]"/>
+                <separator/>
+                <filter name="today" string="Today"
+                        domain="[('start_datetime', '&gt;=', time.strftime('%Y-%m-%d 00:00:00')),
+                                 ('start_datetime', '&lt;=', time.strftime('%Y-%m-%d 23:59:59'))]"/>
+                <filter name="upcoming" string="Upcoming"
+                        domain="[('start_datetime', '&gt;=', time.strftime('%Y-%m-%d %H:%M:%S'))]"/>
+                <separator/>
+                <filter name="archived" string="Archived"
+                        domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter name="group_trainer" string="Trainer"
+                        context="{'group_by': 'trainer_id'}"/>
+                <filter name="group_state" string="Status"
+                        context="{'group_by': 'state'}"/>
+                <filter name="group_month" string="Month"
+                        context="{'group_by': 'start_datetime:month'}"/>
+            </search>
         </field>
     </record>
 

@@ -37,13 +37,10 @@ class FitnessAttendance(models.Model):
         required=True,
     )
 
-    _sql_constraints = [
-        (
-            'member_class_uniq',
-            'unique(member_id, class_id)',
-            'A member can attend the same class only once.',
-        ),
-    ]
+    _member_class_uniq = models.Constraint(
+        'unique(member_id, class_id)',
+        'A member can attend the same class only once.',
+    )
 
     @api.depends('member_id', 'attended_on')
     def _compute_subscription_id(self):

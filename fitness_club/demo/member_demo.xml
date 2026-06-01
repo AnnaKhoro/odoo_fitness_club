@@ -20,5 +20,23 @@
             <field name="gender">female</field>
         </record>
 
+        <record id="member_daniel" model="fitness.member">
+            <field name="partner_id" ref="partner_daniel"/>
+            <field name="birthday">1992-05-09</field>
+            <field name="gender">male</field>
+        </record>
+
+        <record id="member_emily" model="fitness.member">
+            <field name="partner_id" ref="partner_emily"/>
+            <field name="birthday">1998-12-30</field>
+            <field name="gender">female</field>
+        </record>
+
+        <record id="member_filip" model="fitness.member">
+            <field name="partner_id" ref="partner_filip"/>
+            <field name="birthday">1985-04-17</field>
+            <field name="gender">male</field>
+        </record>
+
     </data>
 </odoo>

@@ -10,7 +10,6 @@
                    eval="(DateTime.now() - relativedelta(days=1)).replace(hour=8, minute=0, second=0).strftime('%Y-%m-%d %H:%M:%S')"/>
             <field name="duration_min">60</field>
             <field name="max_participants">12</field>
-            <field name="state">done</field>
         </record>
 
         <!-- CrossFit class — tomorrow 18:00 -->
@@ -21,7 +20,6 @@
                    eval="(DateTime.now() + relativedelta(days=1)).replace(hour=18, minute=0, second=0).strftime('%Y-%m-%d %H:%M:%S')"/>
             <field name="duration_min">60</field>
             <field name="max_participants">10</field>
-            <field name="state">planned</field>
         </record>
 
         <!-- Pilates class — in 3 days 19:00 -->
@@ -32,7 +30,36 @@
                    eval="(DateTime.now() + relativedelta(days=3)).replace(hour=19, minute=0, second=0).strftime('%Y-%m-%d %H:%M:%S')"/>
             <field name="duration_min">45</field>
             <field name="max_participants">15</field>
-            <field name="state">planned</field>
+        </record>
+
+        <!-- Yoga in 2 days 09:00 -->
+        <record id="class_yoga_future" model="fitness.class">
+            <field name="name">Power Yoga</field>
+            <field name="trainer_id" ref="trainer_yoga"/>
+            <field name="start_datetime"
+                   eval="(DateTime.now() + relativedelta(days=2)).replace(hour=9, minute=0, second=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="duration_min">75</field>
+            <field name="max_participants">12</field>
+        </record>
+
+        <!-- CrossFit yesterday at 19:00 (done) -->
+        <record id="class_crossfit_past" model="fitness.class">
+            <field name="name">CrossFit AMRAP</field>
+            <field name="trainer_id" ref="trainer_crossfit"/>
+            <field name="start_datetime"
+                   eval="(DateTime.now() - relativedelta(days=1)).replace(hour=19, minute=0, second=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="duration_min">60</field>
+            <field name="max_participants">10</field>
+        </record>
+
+        <!-- Pilates 4 days ago (done) -->
+        <record id="class_pilates_past" model="fitness.class">
+            <field name="name">Pilates Stretch</field>
+            <field name="trainer_id" ref="trainer_pilates"/>
+            <field name="start_datetime"
+                   eval="(DateTime.now() - relativedelta(days=4)).replace(hour=18, minute=0, second=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="duration_min">45</field>
+            <field name="max_participants">15</field>
         </record>
 
     </data>

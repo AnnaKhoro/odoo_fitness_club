@@ -29,6 +29,9 @@
         'wizards/mass_renew_subscription_wizard_views.xml',
         'wizards/attendance_report_wizard_views.xml',
 
+        'reports/member_report.xml',
+        'reports/member_report_template.xml',
+
         'views/menu_views.xml',
     ],
 

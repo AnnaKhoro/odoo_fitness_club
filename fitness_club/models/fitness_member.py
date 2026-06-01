@@ -24,7 +24,6 @@ class FitnessMember(models.Model):
     )
     
     name = fields.Char(
-        string='Full Name',
         related='partner_id.name',
         store=True,
         readonly=False,
@@ -74,7 +73,7 @@ class FitnessMember(models.Model):
     )
 
     attendance_count = fields.Integer(
-        string='Attendances',
+        string='Attendances count',
         compute='_compute_attendance_count',
     )
 

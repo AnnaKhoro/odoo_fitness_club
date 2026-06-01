@@ -52,6 +52,22 @@
         </field>
     </record>
 
+    <record id="view_fitness_trainer_search" model="ir.ui.view">
+        <field name="name">fitness.trainer.search</field>
+        <field name="model">fitness.trainer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="specialization"/>
+                <filter name="archived" string="Archived"
+                        domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter name="group_specialization" string="Specialization"
+                        context="{'group_by': 'specialization'}"/>
+            </search>
+        </field>
+    </record>
+
     <record id="action_fitness_trainer" model="ir.actions.act_window">
         <field name="name">Trainers</field>
         <field name="res_model">fitness.trainer</field>

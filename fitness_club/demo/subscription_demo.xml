@@ -26,5 +26,29 @@
                    eval="DateTime.now().strftime('%Y-%m-%d')"/>
         </record>
 
+        <!-- Active (monthly, started 10 days ago) -->
+        <record id="subscription_4" model="fitness.subscription">
+            <field name="member_id" ref="member_daniel"/>
+            <field name="plan_id" ref="plan_monthly"/>
+            <field name="date_start"
+                   eval="(DateTime.now() - relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <!-- Active monthly (started 10 days ago) -->
+        <record id="subscription_5" model="fitness.subscription">
+            <field name="member_id" ref="member_emily"/>
+            <field name="plan_id" ref="plan_monthly"/>
+            <field name="date_start"
+                   eval="(DateTime.now() - relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <!-- Active monthly, started 2 days ago -->
+        <record id="subscription_6" model="fitness.subscription">
+            <field name="member_id" ref="member_filip"/>
+            <field name="plan_id" ref="plan_monthly"/>
+            <field name="date_start"
+                   eval="(DateTime.now() - relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+        </record>
+
     </data>
 </odoo>

@@ -46,8 +46,14 @@ class FitnessClass(models.Model):
             ('cancelled', 'Cancelled'),
         ],
         string='Status',
-        default='planned',
-        required=True,
+        compute='_compute_state',
+        store=True,
+    )
+
+    manual_state = fields.Selection(
+        selection=[('cancelled', 'Cancelled')],
+        string='Manual override',
+        help='Set to "cancelled" to force the class status to cancelled.',
     )
 
     notes = fields.Text(string='Notes')
@@ -77,6 +83,31 @@ class FitnessClass(models.Model):
                 )
             else:
                 rec.end_datetime = rec.start_datetime
+
+    @api.depends('start_datetime', 'end_datetime', 'manual_state')
+    def _compute_state(self):
+        """Derive status from time + manual override.
+
+        * ``cancelled`` — if manually cancelled.
+        * ``done``      — if the class has already finished.
+        * ``planned``   — otherwise.
+        """
+        now = fields.Datetime.now()
+        for rec in self:
+            if rec.manual_state == 'cancelled':
+                rec.state = 'cancelled'
+            elif rec.end_datetime and rec.end_datetime < now:
+                rec.state = 'done'
+            else:
+                rec.state = 'planned'
+
+    def action_cancel(self):
+        """Manually mark the class as cancelled."""
+        self.write({'manual_state': 'cancelled'})
+
+    def action_reset(self):
+        """Clear the manual cancellation so status falls back to auto."""
+        self.write({'manual_state': False})
 
     @api.depends('attendance_ids', 'max_participants')
     def _compute_participant_count(self):

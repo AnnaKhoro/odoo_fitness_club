@@ -44,6 +44,20 @@
         </field>
     </record>
 
+    <record id="view_fitness_plan_search" model="ir.ui.view">
+        <field name="name">fitness.plan.search</field>
+        <field name="model">fitness.plan</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="unlimited" string="Unlimited visits"
+                        domain="[('max_visits', '=', 0)]"/>
+                <filter name="archived" string="Archived"
+                        domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
     <record id="action_fitness_plan" model="ir.actions.act_window">
         <field name="name">Plans</field>
         <field name="res_model">fitness.plan</field>
