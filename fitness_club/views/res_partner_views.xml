@@ -6,7 +6,7 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//sheet" position="inside">
+            <xpath expr="//page[@name='sales_purchases']" position="inside">
                 <group string="Fitness Club"
                        invisible="not is_fitness_member">
                     <field name="is_fitness_member" readonly="1"/>
