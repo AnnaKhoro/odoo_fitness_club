@@ -73,10 +73,34 @@
         </field>
     </record>
 
+    <record id="view_fitness_subscription_graph" model="ir.ui.view">
+        <field name="name">fitness.subscription.graph</field>
+        <field name="model">fitness.subscription</field>
+        <field name="arch" type="xml">
+            <graph string="Subscriptions" type="bar" stacked="1" sample="1">
+                <field name="plan_id"/>
+                <field name="state"/>
+                <field name="price" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_fitness_subscription_pivot" model="ir.ui.view">
+        <field name="name">fitness.subscription.pivot</field>
+        <field name="model">fitness.subscription</field>
+        <field name="arch" type="xml">
+            <pivot string="Subscriptions" sample="1">
+                <field name="plan_id" type="row"/>
+                <field name="state" type="col"/>
+                <field name="price" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
     <record id="action_fitness_subscription" model="ir.actions.act_window">
         <field name="name">Subscriptions</field>
         <field name="res_model">fitness.subscription</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,form,graph,pivot</field>
     </record>
 
 </odoo>

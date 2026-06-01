@@ -1,0 +1,695 @@
+# Ukrainian translation for fitness_club
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-01 20:13+0000\n"
+"PO-Revision-Date: 2026-06-01 20:13+0000\n"
+"Last-Translator: Anna Khoroshylova\n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: fitness_club
+#: model:ir.actions.report,print_report_name:fitness_club.action_report_member
+msgid "'Member card - %s' % object.name"
+msgstr "'Member card - %s' % object.name"
+
+#. module: fitness_club
+#: model:ir.model.constraint,message:fitness_club.constraint_fitness_attendance_member_class_uniq
+msgid "A member can attend the same class only once."
+msgstr "Учасник не може двічі відвідати одне й те саме заняття."
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_class__active
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_member__active
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_plan__active
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_trainer__active
+#: model:ir.model.fields.selection,name:fitness_club.selection__fitness_member__subscription_state__active
+#: model:ir.model.fields.selection,name:fitness_club.selection__fitness_subscription__state__active
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_subscription_search
+msgid "Active"
+msgstr "Активний"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_member__active_subscription_id
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_member_search
+msgid "Active subscription"
+msgstr "Активний абонемент"
+
+#. module: fitness_club
+#: model:res.groups,name:fitness_club.group_fitness_admin
+msgid "Administrator"
+msgstr "Адміністратор"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_member__age
+msgid "Age"
+msgstr "Вік"
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_mass_renew_subscription_wizard_form
+msgid "Apply"
+msgstr "Застосувати"
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_class_search
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_member_search
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_plan_search
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_trainer_search
+msgid "Archived"
+msgstr "Архівні"
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+msgid "Attendance history"
+msgstr "Історія відвідувань"
+
+#. module: fitness_club
+#: model:ir.actions.act_window,name:fitness_club.action_attendance_report_wizard_member
+#: model:ir.actions.act_window,name:fitness_club.action_attendance_report_wizard_trainer
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_attendance_report_wizard_form
+msgid "Attendance report"
+msgstr "Звіт по відвідуваннях"
+
+#. module: fitness_club
+#: model:ir.model,name:fitness_club.model_attendance_report_wizard
+msgid "Attendance report wizard"
+msgstr "Майстер звіту по відвідуваннях"
+
+#. module: fitness_club
+#: model:ir.actions.act_window,name:fitness_club.action_fitness_attendance
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_member__attendance_ids
+#: model:ir.ui.menu,name:fitness_club.menu_fitness_attendances
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_attendance_graph
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_attendance_pivot
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_member_form
+msgid "Attendances"
+msgstr "Відвідування"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_member__attendance_count
+msgid "Attendances count"
+msgstr "Кількість відвідувань"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_attendance__attended_on
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+msgid "Attended on"
+msgstr "Дата відвідування"
+
+#. module: fitness_club
+#: model:fitness.plan,description:fitness_club.plan_yearly
+msgid "Best value: unlimited visits for a year."
+msgstr "Найвигідніше: необмежені відвідування на рік."
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_attendance_report_wizard_form
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_class_form
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_subscription_form
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_mass_renew_subscription_wizard_form
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: fitness_club
+#: model:ir.model.fields.selection,name:fitness_club.selection__fitness_class__manual_state__cancelled
+#: model:ir.model.fields.selection,name:fitness_club.selection__fitness_class__state__cancelled
+#: model:ir.model.fields.selection,name:fitness_club.selection__fitness_subscription__manual_state__cancelled
+#: model:ir.model.fields.selection,name:fitness_club.selection__fitness_subscription__state__cancelled
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_class_search
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_subscription_search
+msgid "Cancelled"
+msgstr "Скасовано"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_attendance__class_id
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+msgid "Class"
+msgstr "Заняття"
+
+#. module: fitness_club
+#: model:ir.actions.act_window,name:fitness_club.action_fitness_class
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_trainer__class_ids
+#: model:ir.ui.menu,name:fitness_club.menu_fitness_classes
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_trainer_form
+msgid "Classes"
+msgstr "Заняття"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_trainer__class_count
+msgid "Classes count"
+msgstr "Кількість занять"
+
+#. module: fitness_club
+#: model:ir.ui.menu,name:fitness_club.menu_fitness_config
+msgid "Configuration"
+msgstr "Налаштування"
+
+#. module: fitness_club
+#: model:ir.model,name:fitness_club.model_res_partner
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+msgid "Contact"
+msgstr "Контакт"
+
+#. module: fitness_club
+#: model:fitness.trainer,specialization:fitness_club.trainer_crossfit
+msgid "CrossFit"
+msgstr "Кросфіт"
+
+#. module: fitness_club
+#: model:fitness.class,name:fitness_club.class_crossfit_past
+msgid "CrossFit AMRAP"
+msgstr "Кросфіт AMRAP"
+
+#. module: fitness_club
+#: model:fitness.class,name:fitness_club.class_crossfit_future
+msgid "CrossFit WOD"
+msgstr "Кросфіт WOD"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_member__birthday
+msgid "Date of Birth"
+msgstr "Дата народження"
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+msgid "Date of birth"
+msgstr "Дата народження"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_subscription__days_left
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+msgid "Days left"
+msgstr "Днів залишилось"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_plan__description
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_plan_form
+msgid "Description"
+msgstr "Опис"
+
+#. module: fitness_club
+#: model:ir.model.fields,help:fitness_club.field_fitness_plan__name
+msgid "Display name of the plan, e.g. \"Monthly\", \"Yearly\", \"10 visits\"."
+msgstr "Назва тарифу для відображення, наприклад \"Місячний\", \"Річний\", \"10 відвідувань\"."
+
+#. module: fitness_club
+#: model:ir.model.fields.selection,name:fitness_club.selection__fitness_class__state__done
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_class_search
+msgid "Done"
+msgstr "Завершено"
+
+#. module: fitness_club
+#: model:ir.model.fields.selection,name:fitness_club.selection__fitness_subscription__state__draft
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_plan__duration_days
+msgid "Duration (days)"
+msgstr "Тривалість (днів)"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_class__duration_min
+msgid "Duration (min)"
+msgstr "Тривалість (хв)"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_member__email
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_trainer__email
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+msgid "Email"
+msgstr "Email"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_subscription__date_end
+msgid "End date"
+msgstr "Дата закінчення"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_class__end_datetime
+msgid "Ends at"
+msgstr "Закінчується о"
+
+#. module: fitness_club
+#: model:fitness.class,name:fitness_club.class_pilates_future
+msgid "Evening Pilates"
+msgstr "Вечірній пілатес"
+
+#. module: fitness_club
+#: model:ir.model.fields.selection,name:fitness_club.selection__fitness_member__subscription_state__expired
+#: model:ir.model.fields.selection,name:fitness_club.selection__fitness_subscription__state__expired
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_member_search
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_subscription_search
+msgid "Expired"
+msgstr "Прострочений"
+
+#. module: fitness_club
+#: model:ir.model.fields.selection,name:fitness_club.selection__fitness_member__gender__female
+msgid "Female"
+msgstr "Жіноча"
+
+#. module: fitness_club
+#: model:ir.model,name:fitness_club.model_fitness_class
+msgid "Fitness Class"
+msgstr "Заняття у фітнес-клубі"
+
+#. module: fitness_club
+#: model:ir.model,name:fitness_club.model_fitness_attendance
+msgid "Fitness Class Attendance"
+msgstr "Відвідування заняття"
+
+#. module: fitness_club
+#: model:ir.ui.menu,name:fitness_club.menu_fitness_root
+#: model:res.groups.privilege,name:fitness_club.fitness_club_privilege
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_res_partner_form_fitness
+msgid "Fitness Club"
+msgstr "Фітнес-клуб"
+
+#. module: fitness_club
+#: model:ir.model,name:fitness_club.model_fitness_member
+msgid "Fitness Club Member"
+msgstr "Клієнт фітнес-клубу"
+
+#. module: fitness_club
+#: model:ir.model,name:fitness_club.model_fitness_trainer
+msgid "Fitness Club Trainer"
+msgstr "Тренер фітнес-клубу"
+
+#. module: fitness_club
+#: model:ir.model,name:fitness_club.model_fitness_subscription
+msgid "Fitness Subscription"
+msgstr "Абонемент"
+
+#. module: fitness_club
+#: model:ir.model,name:fitness_club.model_fitness_plan
+msgid "Fitness Subscription Plan"
+msgstr "Тарифний план"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_res_partner__fitness_member_ids
+#: model:ir.model.fields,field_description:fitness_club.field_res_users__fitness_member_ids
+msgid "Fitness memberships"
+msgstr "Членство у фітнес-клубі"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_res_users__fitness_trainer_id
+msgid "Fitness trainer"
+msgstr "Тренер"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_attendance_report_wizard__date_from
+msgid "From"
+msgstr "З"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_member__partner_id
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_trainer__partner_id
+msgid "Full Name"
+msgstr "ПІБ"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_member__gender
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_member_search
+msgid "Gender"
+msgstr "Стать"
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_attendance_report_wizard_form
+msgid "Generate report"
+msgstr "Сформувати звіт"
+
+#. module: fitness_club
+#: model:ir.model.fields,help:fitness_club.field_fitness_plan__duration_days
+msgid "How many days the subscription lasts from its start date."
+msgstr "Скільки днів триває абонемент з дати початку."
+
+#. module: fitness_club
+#: model:ir.model.fields,help:fitness_club.field_fitness_trainer__user_id
+msgid "If set, the trainer can log in with this user account."
+msgstr "Якщо встановлено, тренер може увійти під цим обліковим записом."
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_res_partner__is_fitness_member
+#: model:ir.model.fields,field_description:fitness_club.field_res_users__is_fitness_member
+msgid "Is fitness member"
+msgstr "Є клієнтом фітнес-клубу"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_class__is_full
+msgid "Is full"
+msgstr "Заповнено"
+
+#. module: fitness_club
+#: model:ir.model.fields,help:fitness_club.field_fitness_trainer__specialization
+msgid "Main discipline of the trainer (yoga, crossfit, ...)."
+msgstr "Основна спеціалізація тренера (йога, кросфіт, ...)."
+
+#. module: fitness_club
+#: model:ir.model.fields.selection,name:fitness_club.selection__fitness_member__gender__male
+msgid "Male"
+msgstr "Чоловіча"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_class__manual_state
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_subscription__manual_state
+msgid "Manual override"
+msgstr "Ручне перевизначення"
+
+#. module: fitness_club
+#: model:ir.actions.act_window,name:fitness_club.action_mass_renew_subscription_wizard
+#: model:ir.model,name:fitness_club.model_mass_renew_subscription_wizard
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_mass_renew_subscription_wizard_form
+msgid "Mass renew subscription"
+msgstr "Масове продовження абонементів"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_class__max_participants
+msgid "Max participants"
+msgstr "Макс. учасників"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_plan__max_visits
+msgid "Max visits"
+msgstr "Макс. відвідувань"
+
+#. module: fitness_club
+#: model:ir.model.fields,help:fitness_club.field_fitness_plan__max_visits
+msgid "Maximum number of visits allowed. 0 = unlimited."
+msgstr "Максимальна кількість відвідувань. 0 = без обмежень."
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_attendance__member_id
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_subscription__member_id
+msgid "Member"
+msgstr "Клієнт"
+
+#. module: fitness_club
+#: model:ir.actions.report,name:fitness_club.action_report_member
+msgid "Member Card"
+msgstr "Картка клієнта"
+
+#. module: fitness_club
+#: model:ir.actions.act_window,name:fitness_club.action_fitness_member
+#: model:ir.model.fields,field_description:fitness_club.field_attendance_report_wizard__member_ids
+#: model:ir.ui.menu,name:fitness_club.menu_fitness_members
+msgid "Members"
+msgstr "Клієнти"
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_class_search
+msgid "Month"
+msgstr "Місяць"
+
+#. module: fitness_club
+#: model:fitness.plan,name:fitness_club.plan_monthly
+msgid "Monthly"
+msgstr "Місячний"
+
+#. module: fitness_club
+#: model:fitness.class,name:fitness_club.class_yoga_past
+msgid "Morning Yoga"
+msgstr "Ранкова йога"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_member__name
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_plan__name
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_trainer__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+msgid "No active subscription."
+msgstr "Активного абонемента немає."
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+msgid "No attendances yet."
+msgstr "Відвідувань ще немає."
+
+#. module: fitness_club
+#: model:ir.model.fields.selection,name:fitness_club.selection__fitness_member__subscription_state__none
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_member_search
+msgid "No subscription"
+msgstr "Без абонемента"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_class__notes
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_class_form
+msgid "Notes"
+msgstr "Примітки"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_class__attendance_ids
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_class_form
+msgid "Participants"
+msgstr "Учасники"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_class__participant_count
+msgid "Participants count"
+msgstr "Кількість учасників"
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+msgid "Period"
+msgstr "Період"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_member__phone
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_trainer__phone
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+msgid "Phone"
+msgstr "Телефон"
+
+#. module: fitness_club
+#: model:fitness.trainer,specialization:fitness_club.trainer_pilates
+msgid "Pilates"
+msgstr "Пілатес"
+
+#. module: fitness_club
+#: model:fitness.class,name:fitness_club.class_pilates_past
+msgid "Pilates Stretch"
+msgstr "Пілатес-стретчинг"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_subscription__plan_id
+#: model:ir.model.fields,field_description:fitness_club.field_mass_renew_subscription_wizard__plan_id
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_subscription_search
+msgid "Plan"
+msgstr "Тариф"
+
+#. module: fitness_club
+#: model:ir.model.fields.selection,name:fitness_club.selection__fitness_class__state__planned
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_class_search
+msgid "Planned"
+msgstr "Заплановано"
+
+#. module: fitness_club
+#: model:ir.actions.act_window,name:fitness_club.action_fitness_plan
+#: model:ir.ui.menu,name:fitness_club.menu_fitness_plans
+msgid "Plans"
+msgstr "Тарифи"
+
+#. module: fitness_club
+#: model:fitness.class,name:fitness_club.class_yoga_future
+msgid "Power Yoga"
+msgstr "Силова йога"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_plan__price
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_subscription__price
+msgid "Price"
+msgstr "Ціна"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_subscription__name
+msgid "Reference"
+msgstr "Номер"
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_class_form
+msgid "Reset"
+msgstr "Скинути"
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_class_calendar
+msgid "Schedule"
+msgstr "Розклад"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_plan__sequence
+msgid "Sequence"
+msgstr "Послідовність"
+
+#. module: fitness_club
+#: model:ir.model.fields,help:fitness_club.field_fitness_class__manual_state
+msgid "Set to \"cancelled\" to force the class status to cancelled."
+msgstr "Встановіть \"скасовано\", щоб примусово позначити заняття скасованим."
+
+#. module: fitness_club
+#: model:ir.model.fields,help:fitness_club.field_fitness_subscription__manual_state
+msgid "Set to \"cancelled\" to mark this subscription as cancelled."
+msgstr "Встановіть \"скасовано\", щоб позначити абонемент скасованим."
+
+#. module: fitness_club
+#: model:fitness.plan,description:fitness_club.plan_trial
+msgid "Short trial pass for new visitors."
+msgstr "Пробний абонемент для нових відвідувачів."
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_trainer__specialization
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_trainer_search
+msgid "Specialization"
+msgstr "Спеціалізація"
+
+#. module: fitness_club
+#: model:ir.model.fields,help:fitness_club.field_fitness_member__partner_id
+msgid "Standard partner used as a contact record for the member."
+msgstr "Стандартний партнер як контактний запис клієнта."
+
+#. module: fitness_club
+#: model:ir.model.fields,help:fitness_club.field_fitness_trainer__partner_id
+msgid "Standard partner used as a contact record for the trainer."
+msgstr "Стандартний партнер як контактний запис тренера."
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_subscription__date_start
+#: model:ir.model.fields,field_description:fitness_club.field_mass_renew_subscription_wizard__date_start
+msgid "Start date"
+msgstr "Дата початку"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_class__start_datetime
+msgid "Starts at"
+msgstr "Починається о"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_class__state
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_subscription__state
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_class_search
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_subscription_search
+msgid "Status"
+msgstr "Статус"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_attendance__subscription_id
+msgid "Subscription"
+msgstr "Абонемент"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_member__subscription_state
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_member_search
+msgid "Subscription status"
+msgstr "Статус абонемента"
+
+#. module: fitness_club
+#: model:ir.actions.act_window,name:fitness_club.action_fitness_subscription
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_member__subscription_ids
+#: model:ir.ui.menu,name:fitness_club.menu_fitness_subscriptions
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_member_form
+msgid "Subscriptions"
+msgstr "Абонементи"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_trainer__user_id
+msgid "System User"
+msgstr "Користувач системи"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_class__name
+msgid "Title"
+msgstr "Назва"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_attendance_report_wizard__date_to
+msgid "To"
+msgstr "По"
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_class_search
+msgid "Today"
+msgstr "Сьогодні"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_class__trainer_id
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_class_search
+msgid "Trainer"
+msgstr "Тренер"
+
+#. module: fitness_club
+#: model:ir.model.fields,help:fitness_club.field_res_users__fitness_trainer_id
+msgid "Trainer profile linked to this system user."
+msgstr "Профіль тренера, прив'язаний до користувача системи."
+
+#. module: fitness_club
+#: model:ir.actions.act_window,name:fitness_club.action_fitness_trainer
+#: model:ir.model.fields,field_description:fitness_club.field_attendance_report_wizard__trainer_ids
+#: model:ir.ui.menu,name:fitness_club.menu_fitness_trainers
+msgid "Trainers"
+msgstr "Тренери"
+
+#. module: fitness_club
+#: model:fitness.plan,name:fitness_club.plan_trial
+msgid "Trial week"
+msgstr "Пробний тиждень"
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_plan_search
+msgid "Unlimited visits"
+msgstr "Без обмежень відвідувань"
+
+#. module: fitness_club
+#: model:fitness.plan,description:fitness_club.plan_monthly
+msgid "Unlimited visits for 30 days."
+msgstr "Необмежені відвідування на 30 днів."
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_class_search
+msgid "Upcoming"
+msgstr "Майбутні"
+
+#. module: fitness_club
+#: model:ir.model,name:fitness_club.model_res_users
+#: model:res.groups,name:fitness_club.group_fitness_user
+msgid "User"
+msgstr "Користувач"
+
+#. module: fitness_club
+#: model:ir.model.fields,field_description:fitness_club.field_fitness_subscription__visits_used
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+msgid "Visits used"
+msgstr "Використано відвідувань"
+
+#. module: fitness_club
+#: model:fitness.plan,name:fitness_club.plan_yearly
+msgid "Yearly"
+msgstr "Річний"
+
+#. module: fitness_club
+#: model:fitness.trainer,specialization:fitness_club.trainer_yoga
+msgid "Yoga"
+msgstr "Йога"
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_class_kanban
+msgid "participants"
+msgstr "учасників"
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.view_fitness_member_kanban
+msgid "visits"
+msgstr "відвідувань"
+
+#. module: fitness_club
+#: model_terms:ir.ui.view,arch_db:fitness_club.report_member_template
+msgid "years"
+msgstr "років"
