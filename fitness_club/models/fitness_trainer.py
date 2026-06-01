@@ -12,7 +12,20 @@ class FitnessTrainer(models.Model):
     _description = 'Fitness Club Trainer'
     _order = 'name'
 
-    name = fields.Char(string='Full Name', required=True)
+    partner_id = fields.Many2one(
+        'res.partner',
+        string='Full Name',
+        required=True,
+        ondelete='restrict',
+        help='Standard partner used as a contact record for the trainer.',
+    )
+    
+    name = fields.Char(
+        string='Full Name',
+        related='partner_id.name',
+        store=True,
+        readonly=False,
+    )
 
     specialization = fields.Char(
         string='Specialization',
@@ -20,8 +33,8 @@ class FitnessTrainer(models.Model):
         help='Main discipline of the trainer (yoga, crossfit, ...).',
     )
 
-    phone = fields.Char(string='Phone')
-    email = fields.Char(string='Email')
+    phone = fields.Char(related='partner_id.phone', store=True, readonly=False)
+    email = fields.Char(related='partner_id.email', store=True, readonly=False)
 
     user_id = fields.Many2one(
         'res.users',

@@ -15,13 +15,19 @@ class FitnessMember(models.Model):
     _description = 'Fitness Club Member'
     _order = 'name'
 
-    name = fields.Char(string='Full Name', required=True)
     partner_id = fields.Many2one(
         'res.partner',
-        string='Contact',
+        string='Full Name',
         required=True,
         ondelete='restrict',
         help='Standard partner used as a contact record for the member.',
+    )
+    
+    name = fields.Char(
+        string='Full Name',
+        related='partner_id.name',
+        store=True,
+        readonly=False,
     )
 
     birthday = fields.Date(string='Date of Birth')

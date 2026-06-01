@@ -11,3 +11,5 @@ access_fitness_class_user,fitness.class.user,model_fitness_class,group_fitness_u
 access_fitness_class_admin,fitness.class.admin,model_fitness_class,group_fitness_admin,1,1,1,1
 access_fitness_attendance_user,fitness.attendance.user,model_fitness_attendance,group_fitness_user,1,1,1,0
 access_fitness_attendance_admin,fitness.attendance.admin,model_fitness_attendance,group_fitness_admin,1,1,1,1
+access_mass_renew_subscription_wizard,mass.renew.subscription.wizard,model_mass_renew_subscription_wizard,group_fitness_user,1,1,1,1
+access_attendance_report_wizard,attendance.report.wizard,model_attendance_report_wizard,group_fitness_user,1,1,1,1

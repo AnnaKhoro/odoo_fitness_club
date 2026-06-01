@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- Expired (trial week started 15 days ago) -->
+        <record id="subscription_1" model="fitness.subscription">
+            <field name="member_id" ref="member_alice"/>
+            <field name="plan_id" ref="plan_trial"/>
+            <field name="date_start"
+                   eval="(DateTime.now() - relativedelta(days=15)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <!-- Active (monthly, started 5 days ago) -->
+        <record id="subscription_2" model="fitness.subscription">
+            <field name="member_id" ref="member_brian"/>
+            <field name="plan_id" ref="plan_monthly"/>
+            <field name="date_start"
+                   eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <!-- Active (yearly, started today) -->
+        <record id="subscription_3" model="fitness.subscription">
+            <field name="member_id" ref="member_chloe"/>
+            <field name="plan_id" ref="plan_yearly"/>
+            <field name="date_start"
+                   eval="DateTime.now().strftime('%Y-%m-%d')"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="partner_alice" model="res.partner">
+            <field name="name">Alice Morgan</field>
+            <field name="email">alice.morgan@example.com</field>
+            <field name="phone">+380501110001</field>
+        </record>
+
+        <record id="partner_brian" model="res.partner">
+            <field name="name">Brian Clark</field>
+            <field name="email">brian.clark@example.com</field>
+            <field name="phone">+380501110002</field>
+        </record>
+
+        <record id="partner_chloe" model="res.partner">
+            <field name="name">Chloe Davis</field>
+            <field name="email">chloe.davis@example.com</field>
+            <field name="phone">+380501110003</field>
+        </record>
+
+        <record id="partner_olivia" model="res.partner">
+            <field name="name">Olivia Stone</field>
+            <field name="email">olivia.yoga@example.com</field>
+            <field name="phone">+380502220001</field>
+        </record>
+
+        <record id="partner_marco" model="res.partner">
+            <field name="name">Marco Rossi</field>
+            <field name="email">marco.crossfit@example.com</field>
+            <field name="phone">+380502220002</field>
+        </record>
+
+        <record id="partner_sophie" model="res.partner">
+            <field name="name">Sophie Klein</field>
+            <field name="email">sophie.pilates@example.com</field>
+            <field name="phone">+380502220003</field>
+        </record>
+
+    </data>
+</odoo>

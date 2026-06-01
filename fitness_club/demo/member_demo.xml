@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="member_alice" model="fitness.member">
+            <field name="partner_id" ref="partner_alice"/>
+            <field name="birthday">1995-03-14</field>
+            <field name="gender">female</field>
+        </record>
+
+        <record id="member_brian" model="fitness.member">
+            <field name="partner_id" ref="partner_brian"/>
+            <field name="birthday">1988-11-02</field>
+            <field name="gender">male</field>
+        </record>
+
+        <record id="member_chloe" model="fitness.member">
+            <field name="partner_id" ref="partner_chloe"/>
+            <field name="birthday">2000-07-22</field>
+            <field name="gender">female</field>
+        </record>
+
+    </data>
+</odoo>

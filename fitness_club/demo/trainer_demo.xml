@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="trainer_yoga" model="fitness.trainer">
+            <field name="partner_id" ref="partner_olivia"/>
+            <field name="specialization">Yoga</field>
+        </record>
+
+        <record id="trainer_crossfit" model="fitness.trainer">
+            <field name="partner_id" ref="partner_marco"/>
+            <field name="specialization">CrossFit</field>
+        </record>
+
+        <record id="trainer_pilates" model="fitness.trainer">
+            <field name="partner_id" ref="partner_sophie"/>
+            <field name="specialization">Pilates</field>
+        </record>
+
+    </data>
+</odoo>
