@@ -4,7 +4,7 @@
     'author': 'Anna Khoroshylova',
     'category': 'Services',
     'license': 'LGPL-3',
-    'version': '19.0.1.3.0',
+    'version': '19.0.1.4.0',
 
     'depends': [
         'base',
@@ -48,6 +48,7 @@
     'application': True,
 
     'images': [
+        'static/description/banner.png',
         'static/description/icon.png',
     ],
 }

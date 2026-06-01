@@ -18,7 +18,7 @@ class FitnessClass(models.Model):
     trainer_id = fields.Many2one(
         'fitness.trainer', string='Trainer', required=True,
     )
-    
+
     start_datetime = fields.Datetime(
         string='Starts at',
         required=True,
@@ -38,7 +38,7 @@ class FitnessClass(models.Model):
     max_participants = fields.Integer(
         string='Max participants', default=15,
     )
-    
+
     state = fields.Selection(
         selection=[
             ('planned', 'Planned'),

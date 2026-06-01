@@ -19,7 +19,7 @@ class FitnessTrainer(models.Model):
         ondelete='restrict',
         help='Standard partner used as a contact record for the trainer.',
     )
-    
+
     name = fields.Char(
         related='partner_id.name',
         store=True,

@@ -22,7 +22,7 @@ class FitnessMember(models.Model):
         ondelete='restrict',
         help='Standard partner used as a contact record for the member.',
     )
-    
+
     name = fields.Char(
         related='partner_id.name',
         store=True,
@@ -30,7 +30,7 @@ class FitnessMember(models.Model):
     )
 
     birthday = fields.Date(string='Date of Birth')
-    
+
     age = fields.Integer(
         string='Age',
         compute='_compute_age',

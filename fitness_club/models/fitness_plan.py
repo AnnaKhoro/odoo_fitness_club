@@ -37,6 +37,6 @@ class FitnessPlan(models.Model):
         default=0,
         help='Maximum number of visits allowed. 0 = unlimited.',
     )
-    
+
     description = fields.Text(string='Description', translate=True)
     active = fields.Boolean(default=True)

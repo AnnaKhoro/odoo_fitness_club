@@ -66,12 +66,12 @@ class FitnessSubscription(models.Model):
         string='Days left',
         compute='_compute_days_left',
     )
-    
+
     visits_used = fields.Integer(
         string='Visits used',
         compute='_compute_visits_used',
     )
-    
+
     price = fields.Float(related='plan_id.price', store=True)
 
     @api.depends('member_id', 'plan_id', 'date_start')

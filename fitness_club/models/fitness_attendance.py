@@ -30,7 +30,7 @@ class FitnessAttendance(models.Model):
         compute='_compute_subscription_id',
         store=True,
     )
-    
+
     attended_on = fields.Datetime(
         string='Attended on',
         default=fields.Datetime.now,
